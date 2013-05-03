@@ -8,7 +8,7 @@ do ($ = window.jQuery, window) ->
     start: ->
       return false if @._overlay_visible()
       @._add_overlay_layer()
-      @._show_element(el) for el in @$el.find('*[data-intro]')
+      @._show_element(el) for el in @$el.find('*[data-chardin-text]')
 
       @$el.trigger 'chardinJs:start'
 
@@ -20,7 +20,7 @@ do ($ = window.jQuery, window) ->
 
     refresh: ()->
       if @._overlay_visible()
-        @._position_helper_layer(el) for el in @$el.find('*[data-intro]')
+        @._position_helper_layer(el) for el in @$el.find('*[data-chardin-text]')
       else
         return this
 
@@ -67,7 +67,7 @@ do ($ = window.jQuery, window) ->
         overlay_layer.setAttribute "style", styleText
       , 10
 
-    _get_position: (element) -> element.getAttribute('data-position') or 'bottom'
+    _get_position: (element) -> element.getAttribute('data-chardin-position') or 'bottom'
 
     _place_tooltip: (element) ->
       tooltip_layer = $(element).data('tooltip_layer')
@@ -117,7 +117,7 @@ do ($ = window.jQuery, window) ->
       @._position_helper_layer element
       @$el.get()[0].appendChild helper_layer
       tooltip_layer.className = "chardinjs-tooltip chardinjs-#{@._get_position(element)}"
-      tooltip_layer.innerHTML = "<div class='chardinjs-tooltiptext'>#{element.getAttribute('data-intro')}</div>"
+      tooltip_layer.innerHTML = "<div class='chardinjs-tooltiptext'>#{element.getAttribute('data-chardin-text')}</div>"
       helper_layer.appendChild tooltip_layer
 
       @._place_tooltip element
