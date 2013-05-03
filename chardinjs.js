@@ -110,7 +110,7 @@
       };
 
       chardinJs.prototype._place_tooltip = function(element) {
-        var my_height, my_width, target_element_position, target_height, target_width, tooltip_layer, tooltip_layer_position;
+        var target_element_position, target_height, target_width, tooltip_layer, tooltip_layer_position;
 
         tooltip_layer = $(element).data('tooltip_layer');
         tooltip_layer_position = this._get_offset(tooltip_layer);
@@ -123,14 +123,12 @@
           case "bottom":
             target_element_position = this._get_offset(element);
             target_width = target_element_position.width;
-            my_width = $(tooltip_layer).width();
             tooltip_layer.style.left = "" + ((target_width / 2) - (tooltip_layer_position.width / 2)) + "px";
             break;
           case "left":
           case "right":
             target_element_position = this._get_offset(element);
             target_height = target_element_position.height;
-            my_height = $(tooltip_layer).height();
             tooltip_layer.style.top = "" + ((target_height / 2) - (tooltip_layer_position.height / 2)) + "px";
         }
         switch (this._get_position(element)) {

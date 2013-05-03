@@ -83,12 +83,10 @@ do ($ = window.jQuery, window) ->
         when "top", "bottom"
           target_element_position  = @._get_offset(element)
           target_width             = target_element_position.width
-          my_width                 = $(tooltip_layer).width()
           tooltip_layer.style.left = "#{(target_width/2)-(tooltip_layer_position.width/2)}px"
         when "left", "right"
           target_element_position = @._get_offset(element)
           target_height           = target_element_position.height
-          my_height               = $(tooltip_layer).height()
           tooltip_layer.style.top = "#{(target_height/2)-(tooltip_layer_position.height/2)}px"
 
       switch @._get_position(element)
