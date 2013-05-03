@@ -100,6 +100,9 @@ do ($ = window.jQuery, window) ->
     _position_helper_layer: (element) ->
       helper_layer = $(element).data('helper_layer')
       element_position = @._get_offset(element)
+      # Add an offset when position is "top"
+      if @._get_position(element) is "top"
+          element_position.top = element_position.top - 10
       helper_layer.setAttribute "style", "width: #{element_position.width}px; height:#{element_position.height}px; top:#{element_position.top}px; left: #{element_position.left}px;"
 
     _show_element: (element) ->

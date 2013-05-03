@@ -150,6 +150,9 @@
 
         helper_layer = $(element).data('helper_layer');
         element_position = this._get_offset(element);
+        if (this._get_position(element) === "top") {
+          element_position.top = element_position.top - 10;
+        }
         return helper_layer.setAttribute("style", "width: " + element_position.width + "px; height:" + element_position.height + "px; top:" + element_position.top + "px; left: " + element_position.left + "px;");
       };
 
