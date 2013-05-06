@@ -32,11 +32,6 @@ do ($ = window.jQuery, window) ->
       @$el.find('.chardinjs-show-element').removeClass('chardinjs-show-element')
       @$el.find('.chardinjs-relative-position').removeClass('chardinjs-relative-position')
 
-      if window.removeEventListener
-        window.removeEventListener "keydown", @_onKeyDown, true
-      #IE
-      else document.detachEvent "onkeydown", @_onKeyDown  if document.detachEvent
-
       @$el.trigger 'chardinJs:stop'
 
     _overlay_visible: ->
